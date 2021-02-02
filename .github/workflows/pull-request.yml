@@ -73,7 +73,7 @@ jobs:
           path: _build/html
 
   deploy:
-    needs: build-basic
+    needs: supported-reqs
     runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/publish' }}
     steps:
@@ -91,7 +91,7 @@ jobs:
           personal_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./html/
           publish_branch: master
-          external_repository: thesofproject/thesofproject.github.io
+          external_repository: xiulipan/xiulipan.github.io
 
   lax:
     name: "PIP_IGNORE_INSTALLED=0 requirements-lax.txt"
